@@ -45,6 +45,8 @@ def getMinimumValue(power, armor):
 
 if __name__ == "__main__":
     power = [1, 2, 6 , 7]
+    power = power[::-1] # reversing a list
+    print(power, "h")
     armor = 5 
     result = getMinimumValue(power, armor)
     print("result:", result)
