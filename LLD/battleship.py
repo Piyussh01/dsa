@@ -1,4 +1,3 @@
-# Define an enumeration for orientation if needed
 from enum import Enum
 class Orientation(Enum):
     HORIZONTAL = 1
