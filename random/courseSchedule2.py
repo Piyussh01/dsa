@@ -17,6 +17,7 @@ class Solution:
             if in_deg[i] == 0:
                 queue.append(i)
         
+        #Topological Sort
         result = []
         while queue:
             node = queue.popleft()
