@@ -7,4 +7,3 @@ class Solution:
               return [dic[c], i]
             dic[num] = i
         return []
-        
