@@ -5,4 +5,30 @@
 from collections import defaultdict
 class Solution:
     def countComponents(self, n: int, edges: List[List[int]]) -> int:
+        visited = set()
+        numberOfComponents = 0
+
+        def buildGraph(edges):
+            graph = defaultdict(list)
+            for edge in edges:
+                node1, node2 = edge
+                graph[node1].append(node2)
+                graph[node2].append(node1)
+            return graph
         
+        def exploreComponent(graph, node):
+            if node in visited: return False
+            visited.add(node)
+            for neighbor in graph[node]:
+                exploreComponent(graph, neighbor)
+            return True
+        
+        graph = buildGraph(edges)
+
+        for node in range(n):
+            if node not in visited:
+                if exploreComponent(graph, node):
+                    numberOfComponents += 1
+        
+        return numberOfComponents
+
